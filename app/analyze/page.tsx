@@ -16,19 +16,44 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Github, Linkedin, Code2, ArrowRight, Sparkles } from "lucide-react";
+import { ProfileFormData, APIResponse } from "@/types/types";
 
 export default function AnalyzePage() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState<ProfileFormData>({
+    github: "",
+    linkedin: "",
+    leetcode: "",
+  });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+// Handle Input Change
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+// Handle Form Submission
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      setIsLoading(false);
-      window.location.href = "/dashboard";
-    }, 2000);
+    console.log("Submitting:", formData);
+
+    try {
+      const response = await fetch("http://localhost:8000/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result: APIResponse = await response.json();
+      console.log("Response:", result);
+      alert("Analysis started successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong!");
+    }
+
+    setIsLoading(false);
   };
 
   return (
@@ -100,6 +125,7 @@ export default function AnalyzePage() {
                     Enter your profile URLs to begin the analysis process.
                   </CardDescription>
                 </CardHeader>
+
                 <CardContent className="space-y-4 relative z-10">
                   <div className="space-y-2">
                     <Label
@@ -112,9 +138,12 @@ export default function AnalyzePage() {
                       id="github"
                       placeholder="https://github.com/username"
                       required
+                      value={formData.github}
+                      onChange={handleChange}
                       className="border-[#d9d2e9]/20 bg-white/10 text-[#d9d2e9] placeholder:text-[#d9d2e9]/50"
                     />
                   </div>
+
                   <div className="space-y-2">
                     <Label
                       htmlFor="linkedin"
@@ -126,9 +155,12 @@ export default function AnalyzePage() {
                       id="linkedin"
                       placeholder="https://linkedin.com/in/username"
                       required
+                      value={formData.linkedin}
+                      onChange={handleChange}
                       className="border-[#d9d2e9]/20 bg-white/10 text-[#d9d2e9] placeholder:text-[#d9d2e9]/50"
                     />
                   </div>
+
                   <div className="space-y-2">
                     <Label
                       htmlFor="leetcode"
@@ -139,10 +171,13 @@ export default function AnalyzePage() {
                     <Input
                       id="leetcode"
                       placeholder="https://leetcode.com/username"
+                      value={formData.leetcode}
+                      onChange={handleChange}
                       className="border-[#d9d2e9]/20 bg-white/10 text-[#d9d2e9] placeholder:text-[#d9d2e9]/50"
                     />
                   </div>
                 </CardContent>
+
                 <CardFooter className="relative z-10">
                   <Button
                     type="submit"
