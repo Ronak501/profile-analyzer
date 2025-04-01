@@ -1,28 +1,35 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Github, Linkedin, Code2, ArrowRight, Sparkles } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Github, Linkedin, Code2, ArrowRight, Sparkles } from "lucide-react";
 
 export default function AnalyzePage() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
 
     // Simulate API call
     setTimeout(() => {
-      setIsLoading(false)
-      window.location.href = "/dashboard"
-    }, 2000)
-  }
+      setIsLoading(false);
+      window.location.href = "/dashboard";
+    }, 2000);
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-[#1e0a3c] to-[#3c1053] relative">
@@ -36,16 +43,27 @@ export default function AnalyzePage() {
           <div className="mr-4 flex">
             <Link href="/" className="mr-6 flex items-center space-x-2">
               <Code2 className="h-8 w-8 text-[#d9d2e9]" />
-              <span className="font-bold text-xl text-[#d9d2e9] sm:inline-block">DevProfiler</span>
+              <span className="font-bold text-xl text-[#d9d2e9] sm:inline-block">
+                DevProfiler
+              </span>
             </Link>
             <nav className="flex items-center space-x-6 text-base font-medium">
-              <Link href="/" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
+              <Link
+                href="/"
+                className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg"
+              >
                 Home
               </Link>
-              <Link href="/#features" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
+              <Link
+                href="/#features"
+                className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg"
+              >
                 Features
               </Link>
-              <Link href="/#how-it-works" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
+              <Link
+                href="/#how-it-works"
+                className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg"
+              >
                 How it works
               </Link>
             </nav>
@@ -65,7 +83,8 @@ export default function AnalyzePage() {
                 <div className="absolute -right-4 -top-4 h-12 w-12 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
               </h1>
               <p className="text-[#d9d2e9]/90 md:text-xl">
-                Connect your profiles to get a comprehensive analysis of your digital presence.
+                Connect your profiles to get a comprehensive analysis of your
+                digital presence.
               </p>
             </div>
             <form onSubmit={handleSubmit}>
@@ -74,14 +93,19 @@ export default function AnalyzePage() {
                 <div className="absolute -left-12 -bottom-12 h-32 w-32 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
 
                 <CardHeader>
-                  <CardTitle className="text-[#d9d2e9]">Connect Your Profiles</CardTitle>
+                  <CardTitle className="text-[#d9d2e9]">
+                    Connect Your Profiles
+                  </CardTitle>
                   <CardDescription className="text-[#d9d2e9]/70">
                     Enter your profile URLs to begin the analysis process.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4 relative z-10">
                   <div className="space-y-2">
-                    <Label htmlFor="github" className="flex items-center gap-2 text-[#d9d2e9]">
+                    <Label
+                      htmlFor="github"
+                      className="flex items-center gap-2 text-[#d9d2e9]"
+                    >
                       <Github className="h-4 w-4" /> GitHub Profile
                     </Label>
                     <Input
@@ -92,7 +116,10 @@ export default function AnalyzePage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="linkedin" className="flex items-center gap-2 text-[#d9d2e9]">
+                    <Label
+                      htmlFor="linkedin"
+                      className="flex items-center gap-2 text-[#d9d2e9]"
+                    >
                       <Linkedin className="h-4 w-4" /> LinkedIn Profile
                     </Label>
                     <Input
@@ -103,7 +130,10 @@ export default function AnalyzePage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="leetcode" className="flex items-center gap-2 text-[#d9d2e9]">
+                    <Label
+                      htmlFor="leetcode"
+                      className="flex items-center gap-2 text-[#d9d2e9]"
+                    >
                       <Code2 className="h-4 w-4" /> LeetCode Profile
                     </Label>
                     <Input
@@ -145,7 +175,8 @@ export default function AnalyzePage() {
                       </span>
                     ) : (
                       <span className="flex items-center gap-2 relative z-10">
-                        Start Analysis <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        Start Analysis{" "}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       </span>
                     )}
@@ -155,11 +186,17 @@ export default function AnalyzePage() {
             </form>
             <div className="text-center text-sm text-[#d9d2e9]/50">
               By connecting your profiles, you agree to our{" "}
-              <Link href="#" className="text-[#8a3ffc] hover:text-[#9d5cff] underline underline-offset-4">
+              <Link
+                href="#"
+                className="text-[#8a3ffc] hover:text-[#9d5cff] underline underline-offset-4"
+              >
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link href="#" className="text-[#8a3ffc] hover:text-[#9d5cff] underline underline-offset-4">
+              <Link
+                href="#"
+                className="text-[#8a3ffc] hover:text-[#9d5cff] underline underline-offset-4"
+              >
                 Privacy Policy
               </Link>
               .
@@ -169,7 +206,9 @@ export default function AnalyzePage() {
       </main>
       <footer className="w-full border-t border-[#d9d2e9]/10 py-6 bg-[#1e0a3c] relative z-10">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-center text-sm text-[#d9d2e9]/50 md:text-left">© 2025 DevProfiler. All rights reserved.</p>
+          <p className="text-center text-sm text-[#d9d2e9]/50 md:text-left">
+            © 2025 DevProfiler. All rights reserved.
+          </p>
           <div className="flex gap-4">
             <Link href="#" className="text-[#d9d2e9]/50 hover:text-[#d9d2e9]">
               Terms
@@ -184,6 +223,5 @@ export default function AnalyzePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
-

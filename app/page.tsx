@@ -1,7 +1,7 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Code2, Sparkles, Star } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Code2, Sparkles, Star } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -39,48 +39,51 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-20 xl:py-20 relative overflow-hidden">
+        <section className="w-full py-12 md:py-24 lg:py-10 xl:py-10 relative overflow-hidden">
           {/* Spotlight effects */}
-          <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
-          <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
+          <div className="absolute -top-20 -left-20 h-32 w-32 rounded-full bg-[#8a3ffc] blur-3xl"></div>
+          {/* <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div> */}
+          <div className="absolute -top-20 -right-20 h-32 w-32 rounded-full bg-[#8a3ffc] blur-3xl"></div>
 
           <div className="container px-4 md:px-6 relative z-10">
             <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2 text-center lg:text-left">
                   <div className="inline-flex items-center rounded-full border border-[#d9d2e9]/20 bg-[#8a3ffc]/10 px-3 py-1 text-sm text-[#d9d2e9] backdrop-blur-sm mb-4">
-                    <Sparkles className="mr-1 h-3.5 w-3.5 text-[#8a3ffc]" />
-                    <span>AI-Powered Analysis</span>
+                    <Sparkles className="mr-1 h-3.5 w-3.5 text-[#8a3ffc] " />
+                    <p>AI-Powered Analysis</p>
                   </div>
                   <h1 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] sm:text-5xl xl:text-6xl/none">
-                    <span className="block relative">
+                    <span className="block relative ">
                       AI-Powered Digital Profile Analyzer – Elevate Your Tech
                       Presence
                       <div className="absolute -right-4 -top-4 h-12 w-12 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
                     </span>
                     <span className="block">
+                      <span className="italic font-normal">In</span>{" "}
+                      <span className=" opacity-50">MINUTES</span>
                       <span className="italic font-normal">not</span>{" "}
-                      <span className="line-through opacity-50">HOURS</span>
+                      <span className="line-through ">HOURS</span>
                     </span>
                   </h1>
-                  <div className="relative max-w-[700px] mx-auto lg:mx-0 mt-4">
-                    <p className="text-[#d9d2e9]/90 md:text-xl relative z-10">
+                  <p className="max-w-[700px] text-[#d9d2e9]/90 md:text-xl mx-auto lg:mx-0 mt-4 relative">
+                    <span className="relative z-10">
                       In today's competitive job market, your digital footprint
                       matters. Our AI-driven analyzer evaluates your GitHub,
                       LinkedIn, and coding platform activity to provide a
                       comprehensive profile score, actionable insights, and
                       personalized career recommendations. Optimize your
                       presence and stand out to recruiters effortlessly!
-                    </p>
-                    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 h-16 w-16 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
-                  </div>
+                    </span>
+                    <div className="absolute -left-6 top-1/2 h-16 w-16 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
+                  </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center lg:justify-start">
                   <Button
                     asChild
                     size="lg"
-                    className="bg-[#8a3ffc] text-[#d9d2e9] hover:bg-[#9d5cff] relative overflow-hidden group"
+                    className="bg-[#8a3ffc] text-[#d9d2e9] hover:bg-white hover:text-[#8a3ffc] relative overflow-hidden group"
                   >
                     <Link href="/analyze">
                       <span className="relative z-10 flex items-center">
@@ -98,9 +101,8 @@ export default function Home() {
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%201%2C%202025%2C%2012_30_02%20AM-6xz4YjqNcJHcurc47yiI8ySmG2stK7.png"
                     alt="Developer profile analysis illustration"
-                    width={450}
-                    height={450}
-                    className="w-full h-auto"
+                    width={425}
+                    height={425}
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
@@ -113,8 +115,8 @@ export default function Home() {
         <section className="relative py-8">
           <div className="container px-4">
             <div className="rounded-2xl border border-[#d9d2e9]/10 bg-[#8a3ffc]/5 backdrop-blur-sm p-4 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4 relative overflow-hidden">
-              <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
-              <div className="absolute -left-12 -bottom-12 h-32 w-32 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
+              {/* <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
+              <div className="absolute -left-12 -bottom-12 h-32 w-32 rounded-full bg-[#8a3ffc]/20 blur-xl"></div> */}
 
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8a3ffc]/20">
@@ -128,7 +130,7 @@ export default function Home() {
               </div>
               <Button
                 asChild
-                className="bg-[#8a3ffc]/20 hover:bg-[#8a3ffc]/30 text-[#d9d2e9] border border-[#d9d2e9]/20"
+                className="bg-[#8a3ffc]/20 text-[#d9d2e9] border border-[#d9d2e9]/20  hover:bg-white hover:text-[#301755] "
               >
                 <Link
                   href="https://www.rcl.ac.uk/news/enhance-online-presence-job-search/"
@@ -253,9 +255,16 @@ export default function Home() {
               </div>
               <Button
                 asChild
-                className="bg-[#8a3ffc]/20 hover:bg-[#8a3ffc]/30 text-[#d9d2e9] border border-[#d9d2e9]/20"
+                size="lg"
+                className="bg-[#8a3ffc]/20 text-[#d9d2e9] border border-[#d9d2e9]/20  hover:bg-white hover:text-[#301755] relative  group"
               >
-                <Link href="#how-it-works">Learn More</Link>
+                <Link href="/analyze">
+                  <span className="relative z-10 flex items-center">
+                    Analyze Your Profile{" "}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                </Link>
               </Button>
             </div>
           </div>
@@ -358,7 +367,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#8a3ffc] text-[#d9d2e9] hover:bg-[#9d5cff] relative overflow-hidden group"
+                  className="bg-[#8a3ffc] text-[#d9d2e9] hover:bg-white hover:text-[#8a3ffc] relative overflow-hidden group"
                 >
                   <Link href="/analyze">
                     <span className="relative z-10 flex items-center">
@@ -394,4 +403,3 @@ export default function Home() {
     </div>
   );
 }
-
