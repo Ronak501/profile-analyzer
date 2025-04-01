@@ -7,20 +7,20 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-[#1e0a3c] to-[#3c1053]">
       <header className="w-full border-b border-white/10 bg-transparent backdrop-blur-sm">
-        <div className="container flex h-14 items-center">
+        <div className="container flex h-20 items-center">
           <div className="mr-4 flex">
             <Link href="/" className="mr-6 flex items-center space-x-2">
-              <Code2 className="h-6 w-6 text-[#d9d2e9]" />
-              <span className="font-bold text-[#d9d2e9] sm:inline-block">DevProfiler</span>
+              <Code2 className="h-8 w-8 text-[#d9d2e9]" />
+              <span className="font-bold text-xl text-[#d9d2e9] sm:inline-block">DevProfiler</span>
             </Link>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="/" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9]">
+            <nav className="flex items-center space-x-6 text-base font-medium">
+              <Link href="/" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
                 Home
               </Link>
-              <Link href="#features" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9]">
+              <Link href="#features" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
                 Features
               </Link>
-              <Link href="#how-it-works" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9]">
+              <Link href="#how-it-works" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
                 How it works
               </Link>
             </nav>
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative overflow-hidden">
+        <section className="w-full py-12 md:py-24 lg:py-20 xl:py-20 relative overflow-hidden">
           {/* Spotlight effects */}
           <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
           <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
@@ -44,11 +44,11 @@ export default function Home() {
                   </div>
                   <h1 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] sm:text-5xl xl:text-6xl/none">
                     <span className="block relative">
-                      CONNECT <span className="italic font-normal">with</span> INFLUENCERS
+                      AI-Powered Digital Profile Analyzer – Elevate Your Tech Presence
                       <div className="absolute -right-4 -top-4 h-12 w-12 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
                     </span>
                     <span className="block">
-                      in SECONDS <span className="italic font-normal">not</span>{" "}
+                      <span className="italic font-normal">not</span>{" "}
                       <span className="line-through opacity-50">HOURS</span>
                     </span>
                   </h1>
@@ -84,8 +84,8 @@ export default function Home() {
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Apr%201%2C%202025%2C%2012_30_02%20AM-6xz4YjqNcJHcurc47yiI8ySmG2stK7.png"
                     alt="Developer profile analysis illustration"
-                    width={500}
-                    height={500}
+                    width={450}
+                    height={450}
                     className="w-full h-auto"
                   />
                 </div>
@@ -107,20 +107,30 @@ export default function Home() {
                   <Star className="h-5 w-5 text-[#8a3ffc]" />
                 </div>
                 <p className="text-[#d9d2e9] font-medium">
-                  <span className="font-bold">New!</span> AI-powered career path recommendations now available!
+                  <span className="font-bold">New!</span> Blogs on New Ways to how to enhance your digital tech presence
+                  of your profile in this compititive world
                 </p>
               </div>
               <Button
                 asChild
                 className="bg-[#8a3ffc]/20 hover:bg-[#8a3ffc]/30 text-[#d9d2e9] border border-[#d9d2e9]/20"
               >
-                <Link href="#features">Learn More</Link>
+                <Link
+                  href="https://www.rcl.ac.uk/news/enhance-online-presence-job-search/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                </Link>
               </Button>
             </div>
           </div>
         </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-[#1e0a3c]/80 relative">
+        <section id="features" className="w-full py-12 md:py-24 lg:py-20 bg-[#1e0a3c]/80 relative">
+          <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
+          <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
           <div className="absolute top-0 left-1/4 h-64 w-64 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
 
@@ -195,7 +205,9 @@ export default function Home() {
                   <Sparkles className="h-5 w-5 text-[#8a3ffc]" />
                 </div>
                 <p className="text-[#d9d2e9] font-medium">
-                  <span className="font-bold">Limited Time!</span> Get a free consultation with our career experts.
+                  <span className="font-bold">Limited Time Offer!</span> Get a free profile analysis with our highly
+                  accurate Profile Analyzer. Gain deep insights into your coding contributions, professional engagement,
+                  and recruiter readiness to enhance your digital presence effortlessly!
                 </p>
               </div>
               <Button
@@ -210,8 +222,11 @@ export default function Home() {
 
         <section
           id="how-it-works"
-          className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#1e0a3c] to-[#3c1053] relative"
+          className="w-full py-12 md:py-24 lg:py-20 bg-gradient-to-br from-[#1e0a3c] to-[#3c1053] relative"
         >
+          <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
+          <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
           <div className="absolute top-1/3 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
           <div className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
 
@@ -263,7 +278,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 relative">
+        <section className="w-full py-12 md:py-24 lg:py-20 relative">
+          <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
+          <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
           <div className="absolute inset-0 bg-[#1e0a3c]/80"></div>
           <div className="absolute top-0 right-1/4 h-64 w-64 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
           <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>

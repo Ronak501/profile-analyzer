@@ -73,20 +73,20 @@ export default function DashboardPage() {
       <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
 
       <header className="sticky top-0 z-50 w-full border-b border-[#d9d2e9]/10 bg-[#1e0a3c]/80 backdrop-blur-sm">
-        <div className="container flex h-14 items-center">
+        <div className="container flex h-20 items-center">
           <div className="mr-4 flex">
             <Link href="/" className="mr-6 flex items-center space-x-2">
-              <Code2 className="h-6 w-6 text-[#d9d2e9]" />
-              <span className="font-bold text-[#d9d2e9] sm:inline-block">DevProfiler</span>
+              <Code2 className="h-8 w-8 text-[#d9d2e9]" />
+              <span className="font-bold text-xl text-[#d9d2e9] sm:inline-block">DevProfiler</span>
             </Link>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="/dashboard" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9]">
+            <nav className="flex items-center space-x-6 text-base font-medium">
+              <Link href="/dashboard" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
                 Dashboard
               </Link>
-              <Link href="/history" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9]">
+              <Link href="/history" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
                 History
               </Link>
-              <Link href="/settings" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9]">
+              <Link href="/settings" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
                 Settings
               </Link>
             </nav>
