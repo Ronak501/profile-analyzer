@@ -103,16 +103,6 @@ export default function AnalyzePage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="codeforces" className="flex items-center gap-2 text-[#d9d2e9]">
-                      <Code2 className="h-4 w-4" /> Codeforces Profile
-                    </Label>
-                    <Input
-                      id="codeforces"
-                      placeholder="https://codeforces.com/profile/username"
-                      className="border-[#d9d2e9]/20 bg-white/10 text-[#d9d2e9] placeholder:text-[#d9d2e9]/50"
-                    />
-                  </div>
-                  <div className="space-y-2">
                     <Label htmlFor="leetcode" className="flex items-center gap-2 text-[#d9d2e9]">
                       <Code2 className="h-4 w-4" /> LeetCode Profile
                     </Label>

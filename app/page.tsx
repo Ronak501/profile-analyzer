@@ -11,16 +11,27 @@ export default function Home() {
           <div className="mr-4 flex">
             <Link href="/" className="mr-6 flex items-center space-x-2">
               <Code2 className="h-8 w-8 text-[#d9d2e9]" />
-              <span className="font-bold text-xl text-[#d9d2e9] sm:inline-block">DevProfiler</span>
+              <span className="font-bold text-xl text-[#d9d2e9] sm:inline-block">
+                DevProfiler
+              </span>
             </Link>
             <nav className="flex items-center space-x-6 text-base font-medium">
-              <Link href="/" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
+              <Link
+                href="/"
+                className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg"
+              >
                 Home
               </Link>
-              <Link href="#features" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
+              <Link
+                href="#features"
+                className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg"
+              >
                 Features
               </Link>
-              <Link href="#how-it-works" className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg">
+              <Link
+                href="#how-it-works"
+                className="text-[#d9d2e9]/80 transition-colors hover:text-[#d9d2e9] text-lg"
+              >
                 How it works
               </Link>
             </nav>
@@ -44,7 +55,8 @@ export default function Home() {
                   </div>
                   <h1 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] sm:text-5xl xl:text-6xl/none">
                     <span className="block relative">
-                      AI-Powered Digital Profile Analyzer – Elevate Your Tech Presence
+                      AI-Powered Digital Profile Analyzer – Elevate Your Tech
+                      Presence
                       <div className="absolute -right-4 -top-4 h-12 w-12 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
                     </span>
                     <span className="block">
@@ -52,15 +64,17 @@ export default function Home() {
                       <span className="line-through opacity-50">HOURS</span>
                     </span>
                   </h1>
-                  <p className="max-w-[700px] text-[#d9d2e9]/90 md:text-xl mx-auto lg:mx-0 mt-4 relative">
-                    <span className="relative z-10">
-                      In today's competitive job market, your digital footprint matters. Our AI-driven analyzer
-                      evaluates your GitHub, LinkedIn, and coding platform activity to provide a comprehensive profile
-                      score, actionable insights, and personalized career recommendations. Optimize your presence and
-                      stand out to recruiters effortlessly!
-                    </span>
-                    <div className="absolute -left-6 top-1/2 h-16 w-16 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
-                  </p>
+                  <div className="relative max-w-[700px] mx-auto lg:mx-0 mt-4">
+                    <p className="text-[#d9d2e9]/90 md:text-xl relative z-10">
+                      In today's competitive job market, your digital footprint
+                      matters. Our AI-driven analyzer evaluates your GitHub,
+                      LinkedIn, and coding platform activity to provide a
+                      comprehensive profile score, actionable insights, and
+                      personalized career recommendations. Optimize your
+                      presence and stand out to recruiters effortlessly!
+                    </p>
+                    <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 h-16 w-16 rounded-full bg-[#8a3ffc]/30 blur-xl"></div>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center lg:justify-start">
                   <Button
@@ -107,8 +121,9 @@ export default function Home() {
                   <Star className="h-5 w-5 text-[#8a3ffc]" />
                 </div>
                 <p className="text-[#d9d2e9] font-medium">
-                  <span className="font-bold">New!</span> Blogs on New Ways to how to enhance your digital tech presence
-                  of your profile in this compititive world
+                  <span className="font-bold">New!</span> Blogs on New Ways to
+                  how to enhance your digital tech presence of your profile in
+                  this compititive world
                 </p>
               </div>
               <Button
@@ -127,7 +142,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-20 bg-[#1e0a3c]/80 relative">
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-20 bg-[#1e0a3c]/80 relative"
+        >
           <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
           <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
           <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
@@ -141,53 +159,74 @@ export default function Home() {
                 <span>Powerful Features</span>
               </div>
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] md:text-4xl/tight">Key Features</h2>
+                <h2 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] md:text-4xl/tight">
+                  Key Features
+                </h2>
                 <p className="max-w-[900px] text-[#d9d2e9]/90 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our platform provides comprehensive analysis of your digital presence across multiple platforms.
+                  Our platform provides comprehensive analysis of your digital
+                  presence across multiple platforms.
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-xl border border-[#d9d2e9]/10 bg-white/5 p-6 backdrop-blur-sm relative group hover:bg-white/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#8a3ffc]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Data Aggregation</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Data Aggregation
+                </h3>
                 <p className="mt-2 text-[#d9d2e9]/90">
-                  Automatically scrapes and verifies data from GitHub, LinkedIn, Codeforces, and other coding platforms.
+                  Automatically scrapes and verifies data from GitHub, LinkedIn,
+                  Codeforces, and other coding platforms.
                 </p>
               </div>
               <div className="rounded-xl border border-[#d9d2e9]/10 bg-white/5 p-6 backdrop-blur-sm relative group hover:bg-white/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#8a3ffc]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Profile Scoring</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Profile Scoring
+                </h3>
                 <p className="mt-2 text-[#d9d2e9]/90">
-                  Analyzes coding contributions, project diversity, problem-solving skills, and professional engagement.
+                  Analyzes coding contributions, project diversity,
+                  problem-solving skills, and professional engagement.
                 </p>
               </div>
               <div className="rounded-xl border border-[#d9d2e9]/10 bg-white/5 p-6 backdrop-blur-sm relative group hover:bg-white/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#8a3ffc]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Insight Generation</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Insight Generation
+                </h3>
                 <p className="mt-2 text-[#d9d2e9]/90">
-                  Provides a detailed breakdown of strengths, weaknesses, and actionable recommendations.
+                  Provides a detailed breakdown of strengths, weaknesses, and
+                  actionable recommendations.
                 </p>
               </div>
               <div className="rounded-xl border border-[#d9d2e9]/10 bg-white/5 p-6 backdrop-blur-sm relative group hover:bg-white/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#8a3ffc]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Recruiter Readiness</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Recruiter Readiness
+                </h3>
                 <p className="mt-2 text-[#d9d2e9]/90">
-                  Generates a hiring potential score to help users optimize their digital presence for recruiters.
+                  Generates a hiring potential score to help users optimize
+                  their digital presence for recruiters.
                 </p>
               </div>
               <div className="rounded-xl border border-[#d9d2e9]/10 bg-white/5 p-6 backdrop-blur-sm relative group hover:bg-white/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#8a3ffc]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Peer Comparison</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Peer Comparison
+                </h3>
                 <p className="mt-2 text-[#d9d2e9]/90">
-                  Allows users to benchmark their profile against top developers and peers in their field.
+                  Allows users to benchmark their profile against top developers
+                  and peers in their field.
                 </p>
               </div>
               <div className="rounded-xl border border-[#d9d2e9]/10 bg-white/5 p-6 backdrop-blur-sm relative group hover:bg-white/10 transition-colors">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#8a3ffc]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Career Pathways</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Career Pathways
+                </h3>
                 <p className="mt-2 text-[#d9d2e9]/90">
-                  AI-generated career recommendations based on your profile and industry trends.
+                  AI-generated career recommendations based on your profile and
+                  industry trends.
                 </p>
               </div>
             </div>
@@ -205,9 +244,11 @@ export default function Home() {
                   <Sparkles className="h-5 w-5 text-[#8a3ffc]" />
                 </div>
                 <p className="text-[#d9d2e9] font-medium">
-                  <span className="font-bold">Limited Time Offer!</span> Get a free profile analysis with our highly
-                  accurate Profile Analyzer. Gain deep insights into your coding contributions, professional engagement,
-                  and recruiter readiness to enhance your digital presence effortlessly!
+                  <span className="font-bold">Limited Time Offer!</span> Get a
+                  free profile analysis with our highly accurate Profile
+                  Analyzer. Gain deep insights into your coding contributions,
+                  professional engagement, and recruiter readiness to enhance
+                  your digital presence effortlessly!
                 </p>
               </div>
               <Button
@@ -237,9 +278,12 @@ export default function Home() {
                 <span>Simple Process</span>
               </div>
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] md:text-4xl/tight">How It Works</h2>
+                <h2 className="text-3xl font-bold tracking-tighter text-[#d9d2e9] md:text-4xl/tight">
+                  How It Works
+                </h2>
                 <p className="max-w-[900px] text-[#d9d2e9]/90 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our platform uses AI to analyze your digital presence and provide actionable insights.
+                  Our platform uses AI to analyze your digital presence and
+                  provide actionable insights.
                 </p>
               </div>
             </div>
@@ -249,9 +293,12 @@ export default function Home() {
                   <span className="relative z-10">1</span>
                   <div className="absolute inset-0 rounded-full bg-[#8a3ffc]/50 blur-md"></div>
                 </div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Connect Your Profiles</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Connect Your Profiles
+                </h3>
                 <p className="text-[#d9d2e9]/90">
-                  Link your GitHub, LinkedIn, and coding platform profiles to our system.
+                  Link your GitHub, LinkedIn, and coding platform profiles to
+                  our system.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 text-center relative">
@@ -259,9 +306,12 @@ export default function Home() {
                   <span className="relative z-10">2</span>
                   <div className="absolute inset-0 rounded-full bg-[#8a3ffc]/50 blur-md"></div>
                 </div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">AI Analysis</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  AI Analysis
+                </h3>
                 <p className="text-[#d9d2e9]/90">
-                  Our AI analyzes your contributions, engagement, and skills across platforms.
+                  Our AI analyzes your contributions, engagement, and skills
+                  across platforms.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-2 text-center relative">
@@ -269,9 +319,12 @@ export default function Home() {
                   <span className="relative z-10">3</span>
                   <div className="absolute inset-0 rounded-full bg-[#8a3ffc]/50 blur-md"></div>
                 </div>
-                <h3 className="text-xl font-bold text-[#d9d2e9]">Get Insights</h3>
+                <h3 className="text-xl font-bold text-[#d9d2e9]">
+                  Get Insights
+                </h3>
                 <p className="text-[#d9d2e9]/90">
-                  Receive detailed reports with actionable recommendations to improve your profile.
+                  Receive detailed reports with actionable recommendations to
+                  improve your profile.
                 </p>
               </div>
             </div>
@@ -297,7 +350,8 @@ export default function Home() {
                   Ready to Elevate Your Digital Presence?
                 </h2>
                 <p className="max-w-[900px] text-[#d9d2e9]/90 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Join thousands of developers who have optimized their profiles and advanced their careers.
+                  Join thousands of developers who have optimized their profiles
+                  and advanced their careers.
                 </p>
               </div>
               <div className="mt-6">
@@ -321,7 +375,9 @@ export default function Home() {
       </main>
       <footer className="w-full border-t border-[#d9d2e9]/10 py-6 bg-[#1e0a3c]">
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p className="text-center text-sm text-[#d9d2e9]/50 md:text-left">© 2025 DevProfiler. All rights reserved.</p>
+          <p className="text-center text-sm text-[#d9d2e9]/50 md:text-left">
+            © 2025 DevProfiler. All rights reserved.
+          </p>
           <div className="flex gap-4">
             <Link href="#" className="text-[#d9d2e9]/50 hover:text-[#d9d2e9]">
               Terms
@@ -336,6 +392,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
