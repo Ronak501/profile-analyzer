@@ -52,14 +52,14 @@ export default function AnalyzePage() {
       localStorage.clear();
       localStorage.setItem("github", result.data.github);
       localStorage.setItem("linkedin", result.data.linkedin);
-      localStorage.setItem("leetcode", result.data.leetcode||"");
+      localStorage.setItem("leetcode", result.data.leetcode || "");
+      toast.success("Profiles recorded successfully!");
       setTimeout(() => {
-        toast.success("Profiles recorded successfully!");
+        router.push("/dashboard");
       }, 2000);
-      router.push("/dashboard");
     } catch (error) {
       console.error("Error:", error);
-      alert("Something went wrong!");
+      toast.error("An error occurred while analyzing profiles.");
     }
 
     setIsLoading(false);
@@ -68,9 +68,6 @@ export default function AnalyzePage() {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-[#1e0a3c] to-[#3c1053] relative">
       <Toaster richColors position="top-right" />
-      <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
-      <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
-      <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
       <header className="sticky top-0 z-50 w-full border-b border-[#d9d2e9]/10 bg-[#1e0a3c]/80 backdrop-blur-sm">
         <div className="container flex h-20 items-center">
           <div className="mr-4 flex">

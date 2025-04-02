@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,9 +8,49 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Github, Linkedin, Download, Share2, RefreshCw, Sparkles } from "lucide-react"
+import { toast } from "sonner"
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("overview")
+  const [repos, setRepos] = useState([]);
+  
+    useEffect(() => {
+      let isMounted = true;
+  
+      const fetchRepos = async () => {
+        try {
+          const response = await fetch(
+            "https://api.github.com/users/JEELDONGA18/repos",
+            {
+              method: "GET",
+              headers: { "Content-Type": "application/json" },
+            }
+          );
+  
+          if (!response.ok)
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+  
+          const result = await response.json();
+  
+          if (isMounted) {
+            setRepos(result);
+            console.log(result);
+            setTimeout(() => {
+              toast.success("Profiles recorded successfully!");
+            }, 2000);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          if (isMounted) alert("Something went wrong!");
+        }
+      };
+  
+      fetchRepos();
+  
+      return () => {
+        isMounted = false; // Cleanup to prevent memory leaks
+      };
+    }, []);
 
   // Mock data for the dashboard
   const profileData = {
