@@ -17,6 +17,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Github, Linkedin, Code2, ArrowRight, Sparkles } from "lucide-react";
 import { ProfileFormData, APIResponse } from "@/types/types";
+import { useRouter } from "next/navigation";
+import { toast, Toaster } from "sonner";
 
 export default function AnalyzePage() {
   const [formData, setFormData] = useState<ProfileFormData>({
@@ -25,6 +27,7 @@ export default function AnalyzePage() {
     leetcode: "",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
 // Handle Input Change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,8 +49,14 @@ export default function AnalyzePage() {
       });
 
       const result: APIResponse = await response.json();
-      console.log("Response:", result);
-      alert("Analysis started successfully!");
+      localStorage.clear();
+      localStorage.setItem("github", result.data.github);
+      localStorage.setItem("linkedin", result.data.linkedin);
+      localStorage.setItem("leetcode", result.data.leetcode||"");
+      setTimeout(() => {
+        toast.success("Profiles recorded successfully!");
+      }, 2000);
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error:", error);
       alert("Something went wrong!");
@@ -58,11 +67,10 @@ export default function AnalyzePage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-[#1e0a3c] to-[#3c1053] relative">
-      {/* Spotlight effects */}
+      <Toaster richColors position="top-right" />
       <div className="absolute -top-20 -left-20 h-64 w-64 rounded-full bg-[#8a3ffc]/20 blur-3xl"></div>
       <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-[#8a3ffc]/10 blur-3xl"></div>
       <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-[#8a3ffc]/15 blur-3xl"></div>
-
       <header className="sticky top-0 z-50 w-full border-b border-[#d9d2e9]/10 bg-[#1e0a3c]/80 backdrop-blur-sm">
         <div className="container flex h-20 items-center">
           <div className="mr-4 flex">

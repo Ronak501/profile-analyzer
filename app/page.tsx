@@ -67,17 +67,16 @@ export default function Home() {
                       <span className="line-through ">HOURS</span>
                     </span>
                   </h1>
-                  <p className="max-w-[700px] text-[#d9d2e9]/90 md:text-xl mx-auto lg:mx-0 mt-4 relative">
-                    <span className="relative z-10">
-                      In today's competitive job market, your digital footprint
-                      matters. Our AI-driven analyzer evaluates your GitHub,
-                      LinkedIn, and coding platform activity to provide a
-                      comprehensive profile score, actionable insights, and
-                      personalized career recommendations. Optimize your
-                      presence and stand out to recruiters effortlessly!
-                    </span>
-                    <div className="absolute -left-6 top-1/2 h-16 w-16 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
-                  </p>
+                  <div className="relative max-w-[700px] mx-auto lg:mx-0 mt-4">
+                    <p className="text-[#d9d2e9] text-opacity-90 md:text-xl relative z-10">
+                      In today's competitive job market, your digital footprint matters. 
+                      Our AI-driven analyzer evaluates your GitHub, LinkedIn, and coding 
+                      platform activity to provide a comprehensive profile score, 
+                      actionable insights, and personalized career recommendations. 
+                      Optimize your presence and stand out to recruiters effortlessly!
+                    </p>
+                    <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 h-16 w-16 rounded-full bg-[#8a3ffc]/20 blur-xl"></div>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center lg:justify-start">
                   <Button
