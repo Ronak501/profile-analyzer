@@ -144,23 +144,23 @@ const calculateLanguagePercentages = (
 // Generate strengths and weaknesses based on the data
 const generateInsights = (data: ApiResponse) => {
   const strengths = [
-    data.github_analysis.repositories.length > 10
+    data.github_analysis.repositories?.length > 1
       ? "Good variety of projects"
       : "Starting to build a project portfolio",
-    data.github_analysis.most_used_languages.includes("JavaScript")
+    data.github_analysis.most_used_languages?.includes("JavaScript")
       ? "Strong JavaScript skills"
       : "Exploring different programming languages",
-    data.github_analysis.most_used_languages.includes("TypeScript")
+    data.github_analysis.most_used_languages?.includes("TypeScript")
       ? "TypeScript experience shows attention to type safety"
       : "Consider exploring TypeScript for larger projects",
-    data.github_analysis.repositories.some((repo) => repo.stars > 0)
+    data.github_analysis.repositories?.some((repo) => repo.stars > 0)
       ? "Projects receiving recognition with stars"
       : "Building projects that others find valuable",
     "Active in creating personal projects",
   ];
 
   const weaknesses = [
-    data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+    data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
       (x) => x.difficulty === "Hard"
     )?.count === 0
       ? "No hard-level coding problems solved yet"
@@ -234,9 +234,9 @@ export default function DashboardPage() {
         if (result.github_analysis?.repositories) {
           const featured = result.github_analysis.repositories
             .filter(
-              (repo:any) => repo.stars > 0 || repo.forks > 0 || repo.description
+              (repo: any) => (repo.stars > 0 || repo.forks > 0 || repo.description)
             )
-            .sort((a:any, b:any) => b.stars + b.forks - (a.stars + a.forks))
+            .sort((a: any, b: any) => (b.stars || 0) + (b.forks || 0) - ((a.stars || 0) + (a.forks || 0)))
             .slice(0, 4);
           setFeaturedRepos(featured);
         }
@@ -279,31 +279,31 @@ export default function DashboardPage() {
     let score = 0;
 
     // GitHub metrics
-    score += Math.min(data.github_analysis.repositories.length, 20) * 2; // Max 40 points for repos
-    score += Math.min(data.github_analysis.total_contributions, 50) * 0.4; // Max 20 points for contributions
+    score += Math.min(data.github_analysis.repositories?.length || 0, 20) * 2; // Max 40 points for repos
+    score += Math.min(data.github_analysis.total_contributions || 0, 50) * 0.4; // Max 20 points for contributions
     score +=
       Math.min(
-        data.github_analysis.repositories.reduce(
-          (acc, repo) => acc + repo.stars,
+        data.github_analysis.repositories?.reduce(
+          (acc, repo) => acc + (repo.stars || 0),
           0
-        ),
+        ) || 0,
         20
       ) * 0.5; // Max 10 points for stars
 
     // LeetCode metrics
     const leetcodeSolved =
-      data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+      data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
         (x) => x.difficulty === "All"
       )?.count ?? 0;
     score += Math.min(leetcodeSolved, 50) * 0.4;
 
     // Medium and Hard problems give bonus points
     const mediumSolved =
-      data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+      data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
         (x) => x.difficulty === "Medium"
       )?.count ?? 0;
     const hardSolved =
-      data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+      data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
         (x) => x.difficulty === "Hard"
       )?.count ?? 0;
 
@@ -498,8 +498,8 @@ export default function DashboardPage() {
                         <span className="text-sm font-medium text-[#d9d2e9]">
                           {Math.min(
                             Math.round(
-                              data.github_analysis.repositories.length * 3 +
-                                data.github_analysis.total_contributions * 2
+                              (data.github_analysis.repositories?.length || 0) * 3 +
+                                (data.github_analysis.total_contributions || 0) * 2
                             ),
                             100
                           )}
@@ -509,8 +509,8 @@ export default function DashboardPage() {
                       <Progress
                         value={Math.min(
                           Math.round(
-                            data.github_analysis.repositories.length * 3 +
-                              data.github_analysis.total_contributions * 2
+                            (data.github_analysis.repositories?.length || 0) * 3 +
+                              (data.github_analysis.total_contributions || 0) * 2
                           ),
                           100
                         )}
@@ -542,7 +542,7 @@ export default function DashboardPage() {
                         <span className="text-sm font-medium text-[#d9d2e9]">
                           {Math.min(
                             Math.round(
-                              (data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                              (data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                 (x) => x.difficulty === "All"
                               )?.count ?? 0) * 5
                             ),
@@ -554,7 +554,7 @@ export default function DashboardPage() {
                       <Progress
                         value={Math.min(
                           Math.round(
-                            (data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                            (data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                               (x) => x.difficulty === "All"
                             )?.count ?? 0) * 5
                           ),
@@ -579,7 +579,7 @@ export default function DashboardPage() {
                 </CardHeader>
                 <CardContent className="relative z-10">
                   <div className="flex flex-wrap gap-2">
-                    {data.github_analysis.most_used_languages.map(
+                    {data.github_analysis.most_used_languages?.map(
                       (language, index) => (
                         <Badge
                           key={index}
@@ -798,10 +798,10 @@ export default function DashboardPage() {
                     </CardHeader>
                     <CardContent className="relative z-10">
                       <div className="text-2xl font-bold text-[#d9d2e9]">
-                        {data.github_analysis.repositories.reduce(
-                          (acc, repo) => acc + repo.stars,
+                        {data.github_analysis.repositories?.reduce(
+                          (acc, repo) => acc + (repo.stars || 0),
                           0
-                        )}
+                        ) || 0}
                       </div>
                       <p className="text-xs text-[#d9d2e9]/70">
                         +2 in the last month
@@ -960,7 +960,7 @@ export default function DashboardPage() {
                     </CardHeader>
                     <CardContent className="relative z-10">
                       <div className="text-2xl font-bold text-[#d9d2e9]">
-                        {data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                        {data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                           (x) => x.difficulty === "All"
                         )?.count || 0}
                       </div>
@@ -978,8 +978,8 @@ export default function DashboardPage() {
                     </CardHeader>
                     <CardContent className="relative z-10">
                       <div className="text-2xl font-bold text-[#d9d2e9]">
-                        {data.leetcode_analysis.language_stats.data.matchedUser
-                          .languageProblemCount[0]?.languageName || "N/A"}
+                        {data.leetcode_analysis.language_stats?.data?.matchedUser
+                          ?.languageProblemCount?.[0]?.languageName || "N/A"}
                       </div>
                       <p className="text-xs text-[#d9d2e9]/70">
                         Used for all solutions
@@ -995,8 +995,7 @@ export default function DashboardPage() {
                     </CardHeader>
                     <CardContent className="relative z-10">
                       <div className="text-2xl font-bold text-[#d9d2e9]">
-                        #
-                        {data.leetcode_analysis.profile.data.matchedUser.profile.ranking.toLocaleString()}
+                        #{data.leetcode_analysis.profile?.data?.matchedUser?.profile?.ranking?.toLocaleString() || "N/A"}
                       </div>
                       <p className="text-xs text-[#d9d2e9]/70">
                         Global ranking
@@ -1012,10 +1011,7 @@ export default function DashboardPage() {
                     </CardHeader>
                     <CardContent className="relative z-10">
                       <div className="text-2xl font-bold text-[#d9d2e9]">
-                        {
-                          data.leetcode_analysis.profile.data.matchedUser
-                            .profile.countryName
-                        }
+                        {data.leetcode_analysis.profile?.data?.matchedUser?.profile?.countryName || "N/A"}
                       </div>
                       <p className="text-xs text-[#d9d2e9]/70">Location</p>
                     </CardContent>
@@ -1039,10 +1035,10 @@ export default function DashboardPage() {
                           className="bg-green-500/80 rounded-t-md w-full"
                           style={{
                             height: `${
-                              ((data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                              ((data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                 (x) => x.difficulty === "Easy"
                               )?.count || 0) /
-                                (data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                                (data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                   (x) => x.difficulty === "All"
                                 )?.count || 1)) *
                               100
@@ -1054,7 +1050,7 @@ export default function DashboardPage() {
                             Easy
                           </span>
                           <p className="text-sm font-bold text-[#d9d2e9]">
-                            {data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                            {data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                               (x) => x.difficulty === "Easy"
                             )?.count || 0}
                           </p>
@@ -1065,10 +1061,10 @@ export default function DashboardPage() {
                           className="bg-yellow-500/80 rounded-t-md w-full"
                           style={{
                             height: `${
-                              ((data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                              ((data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                 (x) => x.difficulty === "Medium"
                               )?.count || 0) /
-                                (data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                                (data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                   (x) => x.difficulty === "All"
                                 )?.count || 1)) *
                               100
@@ -1080,7 +1076,7 @@ export default function DashboardPage() {
                             Medium
                           </span>
                           <p className="text-sm font-bold text-[#d9d2e9]">
-                            {data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                            {data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                               (x) => x.difficulty === "Medium"
                             )?.count || 0}
                           </p>
@@ -1091,10 +1087,10 @@ export default function DashboardPage() {
                           className="bg-red-500/80 rounded-t-md w-full"
                           style={{
                             height: `${
-                              ((data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                              ((data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                 (x) => x.difficulty === "Hard"
                               )?.count || 0) /
-                                (data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                                (data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                                   (x) => x.difficulty === "All"
                                 )?.count || 1)) *
                               100
@@ -1106,7 +1102,7 @@ export default function DashboardPage() {
                             Hard
                           </span>
                           <p className="text-sm font-bold text-[#d9d2e9]">
-                            {data.leetcode_analysis.solved_stats.data.matchedUser.submitStatsGlobal.acSubmissionNum.find(
+                            {data.leetcode_analysis.solved_stats?.data?.matchedUser?.submitStatsGlobal?.acSubmissionNum?.find(
                               (x) => x.difficulty === "Hard"
                             )?.count || 0}
                           </p>
