@@ -198,8 +198,10 @@ export default function DashboardPage() {
     const fetchRepos = async () => {
       setIsLoading(true);
       try {
+        const github = localStorage.getItem("github");
+        const leetcode = localStorage.getItem("leetcode");
         const res = await fetch(
-          "http://127.0.0.1:5000/api?github_username=Ronak501&leetcode_username=9hnDm2HoWk"
+          `http://127.0.0.1:5000/api?github_username=${github}&leetcode_username=${leetcode}`
         );
 
         console.log("Response:", res);

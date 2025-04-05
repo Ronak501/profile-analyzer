@@ -127,7 +127,7 @@ export default function AnalyzePage() {
                       htmlFor="github"
                       className="flex items-center gap-2 text-[#d9d2e9]"
                     >
-                      <Github className="h-4 w-4" /> GitHub Profile
+                      <Github className="h-4 w-4" /> GitHub Username
                     </Label>
                     <Input
                       id="github"
@@ -143,7 +143,7 @@ export default function AnalyzePage() {
                       htmlFor="leetcode"
                       className="flex items-center gap-2 text-[#d9d2e9]"
                     >
-                      <Code2 className="h-4 w-4" /> LeetCode Profile
+                      <Code2 className="h-4 w-4" /> LeetCode Username
                     </Label>
                     <Input
                       id="leetcode"
