@@ -23,7 +23,6 @@ import { toast, Toaster } from "sonner";
 export default function AnalyzePage() {
   const [formData, setFormData] = useState<ProfileFormData>({
     github: "",
-    linkedin: "",
     leetcode: "",
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -42,17 +41,9 @@ export default function AnalyzePage() {
     console.log("Submitting:", formData);
 
     try {
-      const response = await fetch("http://localhost:8000/api/analyze", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const result: APIResponse = await response.json();
       localStorage.clear();
-      localStorage.setItem("github", result.data.github);
-      localStorage.setItem("linkedin", result.data.linkedin);
-      localStorage.setItem("leetcode", result.data.leetcode || "");
+      localStorage.setItem("github", formData.github || "");
+      localStorage.setItem("leetcode", formData.leetcode || "");
       toast.success("Profiles recorded successfully!");
       setTimeout(() => {
         router.push("/dashboard");
@@ -61,7 +52,6 @@ export default function AnalyzePage() {
       console.error("Error:", error);
       toast.error("An error occurred while analyzing profiles.");
     }
-
     setIsLoading(false);
   };
 
@@ -148,24 +138,6 @@ export default function AnalyzePage() {
                       className="border-[#d9d2e9]/20 bg-white/10 text-[#d9d2e9] placeholder:text-[#d9d2e9]/50"
                     />
                   </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="linkedin"
-                      className="flex items-center gap-2 text-[#d9d2e9]"
-                    >
-                      <Linkedin className="h-4 w-4" /> LinkedIn Profile
-                    </Label>
-                    <Input
-                      id="linkedin"
-                      placeholder="https://linkedin.com/in/username"
-                      required
-                      value={formData.linkedin}
-                      onChange={handleChange}
-                      className="border-[#d9d2e9]/20 bg-white/10 text-[#d9d2e9] placeholder:text-[#d9d2e9]/50"
-                    />
-                  </div>
-
                   <div className="space-y-2">
                     <Label
                       htmlFor="leetcode"

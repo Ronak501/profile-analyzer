@@ -9,101 +9,41 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Github, Linkedin, Download, Share2, RefreshCw, Sparkles } from "lucide-react"
 import { toast } from "sonner"
+import { set } from "date-fns"
 
 export default function DashboardPage() {
-  const [activeTab, setActiveTab] = useState("overview")
-  const [repos, setRepos] = useState([]);
-  
-    useEffect(() => {
-      let isMounted = true;
-  
-      const fetchRepos = async () => {
-        try {
-          const response = await fetch(
-            "https://api.github.com/users/JEELDONGA18/repos",
-            {
-              method: "GET",
-              headers: { "Content-Type": "application/json" },
-            }
-          );
-  
-          if (!response.ok)
-            throw new Error(`HTTP Error! Status: ${response.status}`);
-  
-          const result = await response.json();
-  
-          if (isMounted) {
-            setRepos(result);
-            console.log(result);
-            setTimeout(() => {
-              toast.success("Profiles recorded successfully!");
-            }, 2000);
-          }
-        } catch (error) {
-          console.error("Error:", error);
-          if (isMounted) alert("Something went wrong!");
-        }
-      };
-  
-      fetchRepos();
-  
-      return () => {
-        isMounted = false; // Cleanup to prevent memory leaks
-      };
-    }, []);
 
-  // Mock data for the dashboard
-  const profileData = {
-    name: "Alex Johnson",
-    score: 78,
-    github: {
-      repos: 32,
-      stars: 156,
-      contributions: 847,
-      languages: [
-        { name: "JavaScript", percentage: 45 },
-        { name: "TypeScript", percentage: 30 },
-        { name: "Python", percentage: 15 },
-        { name: "Other", percentage: 10 },
-      ],
-    },
-    linkedin: {
-      connections: 500,
-      endorsements: 28,
-      posts: 12,
-      engagement: "Medium",
-    },
-    coding: {
-      leetcode: {
-        solved: 187,
-        contests: 8,
-        ranking: "Top 15%",
-      },
-      codeforces: {
-        rating: 1842,
-        contests: 24,
-        rank: "Expert",
-      },
-    },
-    strengths: [
-      "Strong JavaScript & TypeScript skills",
-      "Regular GitHub contributions",
-      "Good problem-solving abilities",
-      "Active in coding competitions",
-    ],
-    weaknesses: [
-      "Limited project diversity",
-      "Few open source contributions",
-      "Infrequent LinkedIn activity",
-      "Limited backend technologies",
-    ],
-    recommendations: [
-      "Contribute to 2-3 popular open source projects",
-      "Diversify your project portfolio with backend technologies",
-      "Increase LinkedIn engagement with technical content",
-      "Add more detailed project descriptions to GitHub repositories",
-    ],
-  }
+  const [activeTab, setActiveTab] = useState("overview")
+  const [data, setData] = useState(null)
+  const [linkedin, setLinkedin] = useState(null)
+  const [github, setGithub] = useState(null)
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const res = await fetch(
+          "http://127.0.0.1:5000/api?github_username=Ronak501&leetcode_username=9hnDm2HoWk"
+        );
+
+        console.log("Response:", res);
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch");
+        }
+
+        const result = await res.json();
+        setLinkedin(result.linkedin);
+        setGithub(result.github);
+        console.log("Result:", result);
+
+        setData(result);
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+
+    fetchRepos();
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-br from-[#1e0a3c] to-[#3c1053] relative">

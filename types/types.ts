@@ -1,7 +1,6 @@
 // Define Profile Form Data Type
 export interface ProfileFormData {
   github: string;
-  linkedin: string;
   leetcode?: string; // Optional field
 }
 
