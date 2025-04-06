@@ -3,7 +3,7 @@
 Analyze your GitHub, LinkedIn, and LeetCode profiles in one place!
 
 <p align="center">
-  <img src="assets/profile-analyzer-dashboard.png" alt="DevProfiler Dashboard" />
+  <img src="public/profile.png" alt="DevProfiler Dashboard" />
 </p>
 
 ## 🚀 Overview
