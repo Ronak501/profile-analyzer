@@ -3838,7 +3838,7 @@ export default function DashboardPage() {
                   {data.linkedin_analysis && !data.linkedin_analysis.error
                     ? data.linkedin_analysis.full_name
                     : data.github_analysis.name}
-                  's Profile
+                  {}'s Profile
                 </h1>
                 <p className="text-[#d9d2e9]/70">
                   Last updated:{" "}
