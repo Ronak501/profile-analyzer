@@ -70,10 +70,37 @@ Analyze your GitHub, LinkedIn, and LeetCode profiles in one place!
 <img src="public/dashboard.png" alt="DevProfiler Dashboard Preview" />
 
 ---
+## 🛠️ Setup and Installation Instructions
 
-## 📝 Usage
-
-### Clone the Repository
 ```bash
+# Clone frontend repo
 git clone https://github.com/Ronak501/profile-analyzer.git
-cd profile-analyzer
+
+# Clone backend repo
+git clone https://github.com/Ronak501/backend_profile_analyzer.git
+
+# Setup backend
+cd backend_profile_analyzer
+npm i --force
+python3 server.py
+
+# Open a new terminal for frontend
+cd ../profile-analyzer
+npm i --force
+npm run dev
+(Make sure Python3 and Node.js are installed and that you have the required environment variables set up for APIs and Firebase.)
+```
+## 👥 Team Members and Their Roles
+
+- **Meet Paladiya** – Frontend UI + Logic  + Deployment
+- **Ronak Talaviya** – Frontend UI + Logic  + Deplyment
+- **Jeel Donga** – Backend Data Scraping, APIs, Analysis Engine  
+- **Vansh Sadadiwala** – Backend Data Scraping, APIs, Analysis Engine  
+
+---
+
+## 🌐 Live Deployment
+
+🔗 [https://profile-analyzer-nine.vercel.app/](https://profile-analyzer-nine.vercel.app/)
+
+
