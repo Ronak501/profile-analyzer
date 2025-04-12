@@ -101,6 +101,6 @@ npm run dev
 
 ## 🌐 Live Deployment
 
-🔗 [https://profile-analyzer-nine.vercel.app/](https://profile-analyzer-nine.vercel.app/)
+🔗 [https://profile-analyzer-nine.vercel.app/](https://profile-analyzer-three.vercel.app/)
 
 
