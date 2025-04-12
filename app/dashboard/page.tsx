@@ -316,8 +316,15 @@ export default function DashboardPage() {
       try {
         const github = localStorage.getItem("github")
         const leetcode = localStorage.getItem("leetcode")
-        console.log(`Fetching from: http://127.0.0.1:5000/api?github_username=${github}&leetcode_username=${leetcode}`);
-        const res = await fetch(`http://127.0.0.1:5000/api?github_username=${github}&leetcode_username=${leetcode}`)
+      const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+      console.log(
+        `Fetching from: ${BACKEND_URL}/api?github_username=${github}&leetcode_username=${leetcode}`
+      );
+
+      const res = await fetch(
+        `${BACKEND_URL}/api?github_username=${github}&leetcode_username=${leetcode}`
+      );
 
         if (!res.ok) {
           throw new Error("Failed to fetch")
